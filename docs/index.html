@@ -6,7 +6,6 @@
 	<title>body-scroll-freezer: dependency-free module to freeze body scroll when opening modal components</title>
 
 	<style>
-		body { padding-right: 20px; }
 		* {
 			padding: 0;
 			margin: 0;
@@ -18,7 +17,11 @@
 			line-height: 150%;
 		}
 		p { margin-bottom: 1.5em }
-		.container { padding: 20px; }
+		.container {
+			padding: 20px;
+			width: 960px;
+			margin: 0 auto;
+		}
 		.js-scrollbar-measure {
 			width: 100px;
 			height: 100px;
@@ -36,13 +39,13 @@
 		}
 		.modal-content {
 			padding: 20px;
-			width: 300px;
-			height: 300px;
+			width: 500px;
+			height: 400px;
 			background: #fff;
 			position: absolute;
 			left: 50%;
 			top: 50%;
-			margin: -150px 0 0 -150px;
+			margin: -200px 0 0 -250px;
 			overflow: auto;
 			box-sizing: border-box;
 		}
