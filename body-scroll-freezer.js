@@ -23,7 +23,7 @@
 	 * @public
 	 */
 	function freeze() {
-		if (scrollWidth === 0) {
+		if (!scrollWidth) {
 			return;
 		}
 		body.style.overflow = 'hidden';
@@ -35,7 +35,7 @@
 	 * @public
 	 */
 	function unfreeze() {
-		if (scrollWidth === 0) {
+		if (!scrollWidth) {
 			return;
 		}
 		body.style.overflow = '';
