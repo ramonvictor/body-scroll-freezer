@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>body-scroll-freezer: dependency-free module to freeze body scroll when opening modal components</title>
+
+	<style>
+		body { padding-right: 20px; }
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			font-family: Sans-serif;
+			font-size: 15px;
+			color: #333;
+			line-height: 150%;
+		}
+		p { margin-bottom: 1.5em }
+		.container { padding: 20px; }
+		.js-scrollbar-measure {
+			width: 100px;
+			height: 100px;
+			overflow: scroll;
+			position: absolute;
+			top: -9999px;
+		}
+		.modal-wrapper {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0,0,0,.7);
+		}
+		.modal-content {
+			padding: 20px;
+			width: 300px;
+			height: 300px;
+			background: #fff;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -150px 0 0 -150px;
+			overflow: auto;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<p>Lorem <strong class="modal-open">[OPEN MODAL]</strong> ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+</div>
+<div class="modal-wrapper" style="display: none;">
+	<div class="modal-content">
+		<span class="modal-close">[CLOSE]</span>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	</div>
+</div>
+<script type="text/javascript" src="https://raw.githubusercontent.com/ramonvictor/body-scroll-freezer/master/body-scroll-freezer.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(event) {
+	var modal = document.querySelector('.modal-wrapper');
+	var bodyScroll = window.bodyScrollFreezer;
+
+	// Init to get scroll width
+	bodyScroll.init();
+
+	// Freeze on modal open
+	document.querySelector('.modal-open')
+		.addEventListener('click', function() {
+			modal.style.display = 'block';
+			bodyScroll.freeze();
+		}, false);
+
+	// Unfreeze on modal close
+	document.querySelector('.modal-close')
+		.addEventListener('click', function() {
+			modal.style.display = 'none';
+			bodyScroll.unfreeze();
+		}, false);
+});
+</script>
+</body>
+</html>
