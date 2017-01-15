@@ -17,6 +17,7 @@
 	 * @return {Number} Browser scroll bar width
 	 */
 	function init() {
+		/* jshint validthis:true */
 		return (this.scrollWidth = scrollWidth = getScrollWidth());
 	}
 
