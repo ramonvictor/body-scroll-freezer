@@ -4,7 +4,7 @@
   "description": "",
   "license": "MIT",
   "version": "1.0.0",
-  "main": "body-scroll-freezer.js",
+  "main": "src/body-scroll-freezer.js",
   "repository": "ramonvictor/body-scroll-freezer",
   "scripts": {
     "start": "gulp"

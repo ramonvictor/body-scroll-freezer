@@ -4,7 +4,7 @@ var rename = require('gulp-rename');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var target = {
-	js_concat_src: ['body-scroll-freezer.js'],
+	js_concat_src: ['src/body-scroll-freezer.js'],
 	js_dest: 'docs/js'
 };
 
@@ -17,7 +17,6 @@ gulp.task('js-uglify', function() {
 	}))
 	.pipe(gulp.dest(target.js_dest));
 });
-
 
 gulp.task('js-lint', function() {
 	gulp.src(target.js_concat_src)
