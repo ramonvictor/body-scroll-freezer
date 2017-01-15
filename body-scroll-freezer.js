@@ -5,9 +5,11 @@
 	 * @module body-scroll-freezer
 	 */
 	var API = {};
-	var MEASURE_SCROLL_CLASS = 'js-scrollbar-measure';
+	var measureScrollClass = 'js-scrollbar-measure';
 	var body = document.body;
 	var scrollWidth;
+	var isFroozen = false;
+	var supportsEventListener = ('addEventListener' in Element.prototype);
 
 	/**
 	 * Init module by getting browser scroll width.
@@ -26,8 +28,15 @@
 		if (!scrollWidth) {
 			return;
 		}
+
 		body.style.overflow = 'hidden';
-		body.style.paddingRight = scrollWidth + 'px';
+		if (windowHasScroll()) {
+			body.style.paddingRight = scrollWidth + 'px';
+		}
+
+		if (supportsEventListener) {
+			toggleResizeListener();
+		}
 	}
 
 	/**
@@ -38,8 +47,13 @@
 		if (!scrollWidth) {
 			return;
 		}
+
 		body.style.overflow = '';
-		body.style.paddingRight = '0';
+		body.style.paddingRight = '';
+
+		if (supportsEventListener) {
+			toggleResizeListener();
+		}
 	}
 
 	/**
@@ -51,12 +65,49 @@
 		var div = document.createElement('div');
 		var scrollBarWidth;
 
-		div.className = MEASURE_SCROLL_CLASS;
+		div.className = measureScrollClass;
 		body.appendChild(div);
 		scrollBarWidth = div.offsetWidth - div.clientWidth;
 		body.removeChild(div);
 
 		return scrollBarWidth;
+	}
+
+	/**
+	 * Check whether window scroll is visible or not.
+	 * @private
+	 * @return {Boolean}
+	 */
+	function windowHasScroll() {
+		return (
+			body.scrollHeight > document.documentElement.clientHeight
+		);
+	}
+
+	/**
+	 * Switch resize listener on/off depending on freeze state.
+	 * @private
+	 */
+	function toggleResizeListener() {
+		isFroozen = (isFroozen === true ? false : true);
+
+		if (isFroozen) {
+			window.addEventListener('resize', onWindowResize, false);
+		} else {
+			window.removeEventListener('resize', onWindowResize, false);
+		}
+	}
+
+	/**
+	 * Update body padding-right depending on window scroll visibility.
+	 * @private
+	 */
+	function onWindowResize() {
+		if (windowHasScroll()) {
+			body.style.paddingRight = scrollWidth + 'px';
+		} else {
+			body.style.paddingRight = '';
+		}
 	}
 
 	/**
