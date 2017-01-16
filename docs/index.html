@@ -46,12 +46,16 @@
 			overflow: auto;
 			box-sizing: border-box;
 			z-index: 2;
+			border-radius: 4px;
+			box-shadow: 0 0 6px 2px rgba(0,0,0,.2);
 		}
 		.modal-close{
 			position: absolute;
-			top: 8px;
-			right: 13px;
+			top: 0;
+			right: 0;
 			cursor: pointer;
+			font-size: 20px;
+			padding: 0 10px;
 		}
 		.container-header{
 			border-bottom: 1px solid #d1d1d1;
@@ -64,7 +68,7 @@
 		}
 		.breadcrumb{
 			background: #f4f5f6;
-			padding: 10px;
+			padding: 10px 0;
 		}
 		.breadcrumb p { margin-bottom: 0; font-size: 13px; }
 	</style>
@@ -101,8 +105,8 @@
 </div>
 <div class="modal-wrapper" style="display: none;">
 	<div class="modal-content">
-		<span class="modal-close">&#10006;</span>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+		<span class="modal-close">&times;</span>
+		<h5>Modal header</h5>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
