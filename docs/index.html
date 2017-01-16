@@ -23,7 +23,15 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
+		}
+		.modal-overlay{
 			background: rgba(0,0,0,.7);
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
 		}
 		.modal-content {
 			padding: 30px;
@@ -36,6 +44,7 @@
 			margin: -200px 0 0 -250px;
 			overflow: auto;
 			box-sizing: border-box;
+			z-index: 2;
 		}
 		.modal-close{
 			position: absolute;
@@ -74,6 +83,7 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	</div>
+	<div class="modal-overlay"></div>
 </div>
 <script type="text/javascript" src="js/body-scroll-freezer.min.js"></script>
 <script>
@@ -81,22 +91,33 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	var modal = document.querySelector('.modal-wrapper');
 	var bodyScroll = window.bodyScrollFreezer;
 
+	// Unfreeze on modal close
+	function closeModal(event) {
+		modal.style.display = 'none';
+		bodyScroll.unfreeze();
+	}
+
+	// Freeze on modal open
+	function openModal() {
+		modal.style.display = 'block';
+		bodyScroll.freeze();
+	}
+
+	// Document keydown handler
+	function onKeyDown(event) {
+		if (event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27) {
+			closeModal();
+		}
+	}
+
 	// Init to get scroll width
 	bodyScroll.init();
 
-	// Freeze on modal open
-	document.querySelector('.modal-open')
-		.addEventListener('click', function() {
-			modal.style.display = 'block';
-			bodyScroll.freeze();
-		}, false);
-
-	// Unfreeze on modal close
-	document.querySelector('.modal-close')
-		.addEventListener('click', function() {
-			modal.style.display = 'none';
-			bodyScroll.unfreeze();
-		}, false);
+	// Attach event listeners
+	document.querySelector('.modal-open').addEventListener('click', openModal, false);
+	document.querySelector('.modal-close').addEventListener('click', closeModal, false);
+	document.querySelector('.modal-overlay').addEventListener('click', closeModal, false);
+	document.addEventListener('keydown', onKeyDown, false);
 });
 </script>
 </body>
