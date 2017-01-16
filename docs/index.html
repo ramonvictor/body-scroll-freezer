@@ -4,24 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>body-scroll-freezer: dependency-free module to freeze body scroll when opening modal components</title>
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
+	<!-- Milligram CSS minified -->
+	<link rel="stylesheet" href="css/milligram.min.css">
 	<style>
-		* {
-			padding: 0;
-			margin: 0;
-		}
-		body {
-			font-family: Sans-serif;
-			font-size: 15px;
-			color: #333;
-			line-height: 150%;
-		}
-		p { margin-bottom: 1.5em }
-		.container {
-			padding: 20px;
-			width: 960px;
-			margin: 0 auto;
-		}
 		.js-scrollbar-measure {
 			width: 100px;
 			height: 100px;
@@ -38,7 +26,7 @@
 			background: rgba(0,0,0,.7);
 		}
 		.modal-content {
-			padding: 20px;
+			padding: 30px;
 			width: 500px;
 			height: 400px;
 			background: #fff;
@@ -49,14 +37,26 @@
 			overflow: auto;
 			box-sizing: border-box;
 		}
+		.modal-close{
+			position: absolute;
+			top: 8px;
+			right: 13px;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
 <div class="container">
-	<p>Lorem <strong class="modal-open">[OPEN MODAL]</strong> ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<p>
+		<button class="button button-outline modal-open">Open modal</button>
+	</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
+	<ul>
+	  <li>Unordered list item 1</li>
+	  <li>Unordered list item 2</li>
+	</ul>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
@@ -67,7 +67,7 @@
 </div>
 <div class="modal-wrapper" style="display: none;">
 	<div class="modal-content">
-		<span class="modal-close">[CLOSE]</span>
+		<span class="modal-close">&#10006;</span>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
