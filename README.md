@@ -40,3 +40,18 @@ document.querySelector('.modal-close').addEventListener('click', function() {
   bodyScroll.unfreeze();
 }, false);
 ```
+
+## Required [CSS](/src/body-scroll-freezer.css)
+
+```css
+/*
+ * Props to https://davidwalsh.name/detect-scrollbar-width
+ */
+.js-scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}
+```
