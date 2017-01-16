@@ -26,11 +26,12 @@
    * @public
    */
   function freeze() {
+    body.style.overflow = 'hidden';
+
     if (!scrollWidth) {
       return;
     }
 
-    body.style.overflow = 'hidden';
     if (windowHasScroll()) {
       body.style.paddingRight = scrollWidth + 'px';
     }
@@ -45,11 +46,12 @@
    * @public
    */
   function unfreeze() {
+    body.style.overflow = '';
+
     if (!scrollWidth) {
       return;
     }
 
-    body.style.overflow = '';
     body.style.paddingRight = '';
 
     if (supportsEventListener) {
