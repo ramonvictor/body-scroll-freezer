@@ -10,6 +10,7 @@
 	<!-- Milligram CSS minified -->
 	<link rel="stylesheet" href="css/milligram.min.css">
 	<style>
+		body {margin: 0; padding: 0;}
 		.js-scrollbar-measure {
 			width: 100px;
 			height: 100px;
@@ -55,12 +56,25 @@
 		.container-header{
 			border-bottom: 1px solid #d1d1d1;
 			margin-bottom: 30px;
-			padding: 15px 0;
+			padding: 30px 0;
 		}
-		.subheader{ font-size: 20px; }
+		.subheader{
+			margin: 0;
+			font-size: 20px;
+		}
+		.breadcrumb{
+			background: #f4f5f6;
+			padding: 10px;
+		}
+		.breadcrumb p { margin-bottom: 0; font-size: 13px; }
 	</style>
 </head>
 <body>
+<div class="breadcrumb">
+	<div class="container">
+		<p><a href="https://github.com/ramonvictor/body-scroll-freezer">github repo</a> &gt; demo page</p>
+	</div>
+</div>
 <div class="container">
 	<div class="container-header clearfix">
 			<div class="float-left">
@@ -81,10 +95,6 @@
 	  <li>Unordered list item 1</li>
 	  <li>Unordered list item 2</li>
 	</ul>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
