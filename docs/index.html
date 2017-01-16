@@ -52,10 +52,25 @@
 			right: 13px;
 			cursor: pointer;
 		}
+		.container-header{
+			border-bottom: 1px solid #d1d1d1;
+			margin-bottom: 30px;
+			padding: 15px 0;
+		}
+		.subheader{ font-size: 20px; }
 	</style>
 </head>
 <body>
 <div class="container">
+	<div class="container-header clearfix">
+			<div class="float-left">
+				<h1>body-scroll-freezer</h1>
+				<p class="subheader">Dependency-free JS module to freeze body scroll when opening modal box.</p>
+			</div>
+			<div class="float-right">
+				<a class="github-button" href="https://github.com/ramonvictor/body-scroll-freezer" data-icon="octicon-star" data-style="mega" data-count-href="/ramonvictor/body-scroll-freezer/stargazers" data-count-api="/repos/ramonvictor/body-scroll-freezer#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star ramonvictor/body-scroll-freezer on GitHub">Star</a>
+			</div>
+	</div>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse libero, similique. Quo tempora maiores mollitia magni asperiores pariatur nobis amet, cupiditate quam impedit at libero laboriosam, deserunt ipsum, provident debitis.</p>
 	<p>
 		<button class="button button-outline modal-open">Open modal</button>
@@ -120,5 +135,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	document.addEventListener('keydown', onKeyDown, false);
 });
 </script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
