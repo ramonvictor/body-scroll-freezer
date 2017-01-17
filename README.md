@@ -10,9 +10,9 @@ Useful for modal, sliding-panel and lightbox interfaces.
 
 ## A note on performance
 
-Many other alternatives of this module uses both `mousewheel` and `DOMMouseScroll` listeners to get some information from the DOM, which usually includes: `Element.scrollTop`, `event.deltaY`, `Element.scrollHeight` or `Element.clientHeight`. Check this [StackOverflow answer](http://stackoverflow.com/questions/5802467/prevent-scrolling-of-parent-element#answer-16324762) as an example.
+Many other alternatives to this module listen to both `mousewheel` and `DOMMouseScroll` events in order to get some information from the DOM, which usually includes: `Element.scrollTop`, `event.deltaY`, `Element.scrollHeight` or `Element.clientHeight`. Check this [StackOverflow answer](http://stackoverflow.com/questions/5802467/prevent-scrolling-of-parent-element#answer-16324762) as an example.
 
-The problem is that most of those DOM operations (`.scrollTop`/`.scrollHeight`/`.clientHeight`) are expensive because they [force layout/reflow](https://gist.github.com/paulirish/5d52fb081b3570c81e3a). For more info check out this article about [Scrolling Performance](https://www.html5rocks.com/en/tutorials/speed/scrolling/).
+The problem is that most of those DOM operations (`.scrollTop` and `.scrollHeight`, for example) are expensive because they [force layout/reflow](https://gist.github.com/paulirish/5d52fb081b3570c81e3a). For more info on scrolling performance [check out this article](https://www.html5rocks.com/en/tutorials/speed/scrolling/).
 
 So, to avoid all that, **body-scroll-freezer** just assigns `overflow: hidden;` and `padding-right: [scrollWidth]px;` to the `<body>`.
 The `overflow` avoids vertical move on the background when users are scrolling within the modal box. The `padding-right` prevents horizontal jumps when hiding/showing the scrollbar.
