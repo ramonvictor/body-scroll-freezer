@@ -24,29 +24,27 @@ The `overflow` avoids vertical move on the background when users are scrolling w
 var bodyScroll = require('body-scroll-freezer'); 
 ```
 
-1 - Init to calculate scroll bar width.
+1\.  Init to calculate scroll bar width.
 
 ```js
 // Note: store init() return in a variable is optional.
 var scrollWidth = bodyScroll.init();
 ```
 
-2 - Turn scroll freeze **ON** when closing modal. Example:
+2\. Turn scroll freeze **ON** when closing modal. Example:
 
 ```js
 document.querySelector('.modal-open').addEventListener('click', function() {
-  modal.style.display = 'block';
-  // Freeze on modal open
+  // Logic to show modal goes here
   bodyScroll.freeze();
 }, false);
 ```
 
-3 - Turn scroll freeze **OFF** when closing modal. Example:
+3\. Turn scroll freeze **OFF** when closing modal. Example:
 
 ```js
 document.querySelector('.modal-close').addEventListener('click', function() {
-  modal.style.display = 'none';
-  // Unfreeze on modal open
+  // Logic to hide modal goes here
   bodyScroll.unfreeze();
 }, false);
 ```
