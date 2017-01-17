@@ -20,7 +20,8 @@ The `overflow` avoids vertical move on the background when users are scrolling w
 ## Usage
 
 ```js
-var bodyScroll = require('body-scroll-freezer'); // If no AMD/CommonJS: window.bodyScrollFreezer;
+// If no AMD/CommonJS: window.bodyScrollFreezer;
+var bodyScroll = require('body-scroll-freezer'); 
 ```
 
 1 - Init to calculate scroll bar width.
