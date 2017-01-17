@@ -27,7 +27,7 @@ var bodyScroll = require('body-scroll-freezer');
 1\.  Init to calculate scroll bar width.
 
 ```js
-// Note: store init() return in a variable is optional.
+// Note: declaring variable to store init() return is optional.
 var scrollWidth = bodyScroll.init();
 ```
 
