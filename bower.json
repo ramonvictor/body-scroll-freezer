@@ -1,0 +1,24 @@
+{
+  "name": "body-scroll-freezer",
+  "description": "Dependency-free JS module to freeze body scroll when opening modal box",
+  "main": "docs/js/body-scroll-freezer.min.js",
+  "authors": [
+    "@ramonvictor"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "scroll",
+    "freeze",
+    "toggle",
+    "mousewheel"
+  ],
+  "homepage": "https://github.com/ramonvictor/body-scroll-freezer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile.js"
+  ]
+}
