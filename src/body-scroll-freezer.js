@@ -9,6 +9,7 @@
   var body = document.body;
   var scrollWidth;
   var isFroozen = false;
+  var resizeWait = false;
   var supportsEventListener = ('addEventListener' in Element.prototype);
 
   /**
@@ -106,11 +107,18 @@
    * @private
    */
   function onWindowResize() {
+    if (resizeWait) {
+      return;
+    }
+
     if (windowHasScroll()) {
       body.style.paddingRight = scrollWidth + 'px';
     } else {
       body.style.paddingRight = '';
     }
+
+    resizeWait = true;
+    window.setTimeout(function() { resizeWait = false; }, 150);
   }
 
   /**
