@@ -1,5 +1,7 @@
 # body-scroll-freezer
 
+[![npm version](https://badge.fury.io/js/body-scroll-freezer.svg)](https://badge.fury.io/js/body-scroll-freezer)
+
 Dependency-free JS module to freeze body scroll when opening modal box.
 
 Useful for modal, sliding-panel and lightbox interfaces.
