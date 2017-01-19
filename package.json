@@ -11,9 +11,7 @@
     "start": "gulp"
   },
   "dependencies": {},
-  "engines": {
-    "node": "5.0.0"
-  },
+  "engines": {},
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-header": "^1.8.8",
