@@ -9,13 +9,6 @@
   var scrollWidth;
   var resizeWait = false;
   var supportsEventListener = ('addEventListener' in Element.prototype);
-  var measureScrollStyle = [
-      'width: 100px',
-      'height: 100px',
-      'overflow: scroll',
-      'position: absolute',
-      'top: -9999px'
-    ].join(';');
 
   /**
    * Init module by getting browser scroll width.
@@ -75,9 +68,15 @@
     var div = document.createElement('div');
     var scrollBarWidth;
 
-    div.setAttribute('style', measureScrollStyle);
-    body.appendChild(div);
+    div.setAttribute('style', [
+      'width: 100px',
+      'height: 100px',
+      'overflow: scroll',
+      'position: absolute',
+      'top: -9999px'
+    ].join(';'));
 
+    body.appendChild(div);
     scrollBarWidth = div.offsetWidth - div.clientWidth;
     body.removeChild(div);
 
