@@ -17,7 +17,6 @@
       'top: -9999px'
     ].join(';');
 
-
   /**
    * Init module by getting browser scroll width.
    * @public
@@ -67,7 +66,7 @@
   }
 
   /**
-   * Append/remove `div.js-scrollbar-measure` just to measure scroll bar width.
+   * Append/remove `<div>` to measure browser's scrollbar width.
    * Props to {@link https://davidwalsh.name/detect-scrollbar-width|@davidwalshblog}.
    * @private
    * @return {Number} Browser scroll bar width
