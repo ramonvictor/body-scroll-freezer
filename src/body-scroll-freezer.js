@@ -5,12 +5,18 @@
    * @module body-scroll-freezer
    */
   var API = {};
-  var measureScrollClass = 'js-scrollbar-measure';
   var body = document.body;
   var scrollWidth;
-  var isFroozen = false;
   var resizeWait = false;
   var supportsEventListener = ('addEventListener' in Element.prototype);
+  var measureScrollStyle = [
+      'width: 100px',
+      'height: 100px',
+      'overflow: scroll',
+      'position: absolute',
+      'top: -9999px'
+    ].join(';');
+
 
   /**
    * Init module by getting browser scroll width.
@@ -38,7 +44,7 @@
     }
 
     if (supportsEventListener) {
-      toggleResizeListener();
+      toggleResizeListener(true);
     }
   }
 
@@ -56,12 +62,13 @@
     body.style.paddingRight = '';
 
     if (supportsEventListener) {
-      toggleResizeListener();
+      toggleResizeListener(false);
     }
   }
 
   /**
    * Append/remove `div.js-scrollbar-measure` just to measure scroll bar width.
+   * Props to {@link https://davidwalsh.name/detect-scrollbar-width|@davidwalshblog}.
    * @private
    * @return {Number} Browser scroll bar width
    */
@@ -69,8 +76,9 @@
     var div = document.createElement('div');
     var scrollBarWidth;
 
-    div.className = measureScrollClass;
+    div.setAttribute('style', measureScrollStyle);
     body.appendChild(div);
+
     scrollBarWidth = div.offsetWidth - div.clientWidth;
     body.removeChild(div);
 
@@ -92,10 +100,8 @@
    * Switch resize listener on/off depending on freeze state.
    * @private
    */
-  function toggleResizeListener() {
-    isFroozen = (isFroozen === true ? false : true);
-
-    if (isFroozen) {
+  function toggleResizeListener(isFrozen) {
+    if (isFrozen) {
       window.addEventListener('resize', onWindowResize, false);
     } else {
       window.removeEventListener('resize', onWindowResize, false);
@@ -103,7 +109,7 @@
   }
 
   /**
-   * Update body padding-right depending on window scroll visibility.
+   * Throttled logic to update body padding based on window scroll visibility.
    * @private
    */
   function onWindowResize() {
