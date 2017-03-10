@@ -17,6 +17,9 @@
    */
   function init() {
     /* jshint validthis:true */
+    if (typeof scrollWidth !== 'undefined') {
+      return scrollWidth;
+    }
     return (this.scrollWidth = scrollWidth = getScrollWidth());
   }
 

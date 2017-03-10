@@ -3,7 +3,7 @@
   "author": "@ramonvictor",
   "description": "Dependency-free JS module to freeze body scroll when opening modal box",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "docs/js/body-scroll-freezer.min.js",
   "homepage": "https://github.com/ramonvictor/body-scroll-freezer/",
   "repository": "ramonvictor/body-scroll-freezer",
