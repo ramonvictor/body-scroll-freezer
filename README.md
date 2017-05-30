@@ -10,6 +10,12 @@ Useful for modal, sliding-panel and lightbox interfaces.
 
 <a href="https://ramonvictor.github.io/body-scroll-freezer/"><img src="https://raw.githubusercontent.com/ramonvictor/body-scroll-freezer/master/docs/assets/online-demo.png" alt="body-scroll-freezer: online demo" /></a>
 
+## How to install?
+
+```
+$ npm i body-scroll-freezer
+```
+
 ## A note on performance
 
 Many other alternatives to this module listen to both `mousewheel` and `DOMMouseScroll` events in order to get some information from the DOM, which usually includes: `Element.scrollTop`, `event.deltaY`, `Element.scrollHeight` or `Element.clientHeight`. Check this [StackOverflow answer](http://stackoverflow.com/questions/5802467/prevent-scrolling-of-parent-element#answer-16324762) as an example.
