@@ -137,6 +137,10 @@
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = API;
+  } else if (typeof define === "function" && define.amd) {
+    define([], function () {
+      return API;
+    });
   } else if (typeof window !== 'undefined') {
     window.bodyScrollFreezer = API;
   }
